@@ -25,11 +25,9 @@ POSE_PAIRS = [
     ["LHeel", "LSmallToe"]
 ]
 
-# 각 파일 path
+# 오픈포즈 모델 경로
 protoFile = "/HR-VITON/openpose_models/pose_deploy.prototxt"
 weightsFile = "/HR-VITON/openpose_models/pose_iter_584000.caffemodel"
- 
-# 위의 path에 있는 network 불러오기
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 
 # 동영상 파일 불러오기
@@ -58,9 +56,6 @@ for filename in os.listdir(video_folder):
 
             if not ret:
                 break
-
-            # if frame_count==1 or frame_count % 30 !=0:
-            #     continue
         
             # frame.shape = 불러온 이미지에서 height, width, color 받아옴
             imageHeight, imageWidth, _ = image.shape
@@ -78,7 +73,7 @@ for filename in os.listdir(video_folder):
             
             H = output.shape[2]
             W = output.shape[3]
-            #print("이미지 ID : ", len(output[0]), ", H : ", output.shape[2], ", W : ",output.shape[3]) # 이미지 ID
+            #print("이미지 ID : ", len(output[0])) # 이미지 ID를 출력하고 싶으면 이것을 사용하면 됩니다
 
             # 키포인트 검출시 이미지에 그려줌
             points = []
