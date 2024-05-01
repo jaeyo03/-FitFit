@@ -26,18 +26,16 @@ POSE_PAIRS = [
 ]
 
 # 각 파일 path
-protoFile = "/Users/junghyunkim/HR-VITON/openpose_models/pose_deploy.prototxt"
-weightsFile = "/Users/junghyunkim/HR-VITON/openpose_models/pose_iter_584000.caffemodel"
+protoFile = "/HR-VITON/openpose_models/pose_deploy.prototxt"
+weightsFile = "/HR-VITON/openpose_models/pose_iter_584000.caffemodel"
  
 # 위의 path에 있는 network 불러오기
 net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
 
 # 동영상 파일 불러오기
 params = dict()
-# params["model_folder"] = "C:\\Users\\DATATREE\\Downloads\\openpose-master\\models"
-video_folder = "/Users/junghyunkim/HR-VITON/test/image"  # 비디오 파일들이 저장된 폴더
-# video_folder = "C:\\Users\\DATATREE\\Downloads\\사람동작 영상\\비디오\\1_걷기\\1-1"
-result_folder = "/Users/junghyunkim/HR-VITON/openpose_json"
+video_folder = "/HR-VITON/test/image"  # 비디오 파일들이 저장된 폴더
+result_folder = "/HR-VITON/openpose_json"
 
 
 for filename in os.listdir(video_folder):
