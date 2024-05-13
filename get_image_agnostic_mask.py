@@ -1,38 +1,3 @@
-# import os
-# from PIL import Image
-# import numpy as np
-
-# def process_images(input_folder, output_folder):
-#     # Ensure output folder exists
-#     if not os.path.exists(output_folder):
-#         os.makedirs(output_folder)
-
-#     # Process each image in the input folder
-#     for filename in os.listdir(input_folder):
-#         if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-#             image_path = os.path.join(input_folder, filename)
-#             image = Image.open(image_path)
-#             img_array = np.array(image)
-
-#             # Apply the mask for the specific gray color [128, 128, 128]
-#             mask = np.all(np.logical_and(img_array >= [120, 120, 120], img_array <= [136, 136, 136]), axis=-1)
-#             new_img_array = np.zeros_like(img_array)
-#             new_img_array[mask] = [255, 255, 255]  # Set exact gray areas to white
-#             new_img_array[~mask] = [0, 0, 0]       # Set all other areas to black
-
-#             # Convert back to an image
-#             new_image = Image.fromarray(new_img_array)
-            
-#             # Save the processed image in the output folder
-#             new_filename = filename.split(".")[0] + "_mask.png"
-#             output_path = os.path.join(output_folder, new_filename)
-#             new_image.save(output_path)
-#             print(f"Processed and saved: {output_path}")
-
-# # Example usage:
-# process_images('/Users/junghyunkim/HR-VITON/test/myagnostic', '/Users/junghyunkim/HR-VITON/test/myagnostic_mask')
-
-
 import json
 from os import path as osp
 import os
